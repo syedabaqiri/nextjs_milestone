@@ -1,0 +1,31 @@
+.container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .content {
+    margin-top: 50px;
+  }
+  
+  .heading {
+    font-size: 2.5em;
+    color: #333;
+  }
+  
+  .postList {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .postItem {
+    margin: 10px 0;
+  }
+  
+  .postLink {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .postLink:hover {
+    text-decoration: underline;
+  }

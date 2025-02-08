@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import '../styles/globals.css';  // ✅ Use global styles
-import Navigation from '../components/Navigation';  // ✅ Import Navigation globally
+import '../styles/globals.css';  
+import Navigation from '../components/Navigation'; 
 
 export const metadata: Metadata = {
   title: 'My Portfolio',
@@ -15,8 +15,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navigation /> {/* ✅ Now Navigation appears on ALL pages */}
-        {children} {/* ✅ This will render the content of each page */}
+        <Navigation /> 
+        {children} 
       </body>
     </html>
   );
