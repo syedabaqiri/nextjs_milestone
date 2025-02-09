@@ -1,6 +1,7 @@
+"use client"
 import Link from 'next/link';
-import Navigation from '../../components/Navigation';
-import styles from '../../styles/Blog.module.css';
+import Navigation from '@/components/Navigation';
+import styles from "@/styles/Blog.module.css";
 
 const posts = [
   { id: '1', title: 'First Blog Post' },
@@ -11,7 +12,7 @@ const posts = [
 export default function Blog() {
   return (
     <div className={styles.container}>
-      <Navigation />
+      
       <div className={styles.content}>
         <h1 className={styles.heading}>Blog</h1>
         <ul className={styles.postList}>

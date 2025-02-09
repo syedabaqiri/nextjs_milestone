@@ -2,6 +2,7 @@
 import React from 'react';
 import { useState, ChangeEvent, FormEvent } from 'react';
 import Navigation from '../../components/Navigation';
+import styles from '@/styles/Contact.module.css'
 
 export default function Contact() {
   const [name, setName] = useState('');
