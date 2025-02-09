@@ -1,73 +1,67 @@
-"use client"
-import React from 'react';
-import { useState, ChangeEvent, FormEvent } from 'react';
-import Navigation from '../../components/Navigation';
-import styles from '@/styles/Contact.module.css'
+"use client";
+import React, { useState, ChangeEvent, FormEvent } from "react";
+import Navigation from "@/components/Navigation"; // ✅ Ensure this exists
 
 export default function Contact() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  };
-
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
-
-  const handleMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setMessage(e.target.value);
-  };
+  const handleChange =
+    (setter: React.Dispatch<React.SetStateAction<string>>) =>
+    (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setter(e.target.value);
+    };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Message:', message);
+    console.log({ name, email, message });
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gradient-to-r from-blue-100 to-blue-300 flex flex-col items-center">
       
-      <div className="p-6">
-        <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-        <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
-          <div className="mb-4">
-            <label htmlFor="name" className="block text-gray-700 font-bold mb-2">Name</label>
+      <div className="w-full max-w-2xl bg-white shadow-lg rounded-lg p-8 mt-10">
+        <h1 className="text-3xl font-bold text-gray-800 text-center mb-6">
+          Contact Us
+        </h1>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-gray-700 font-medium">Name</label>
             <input
               type="text"
-              id="name"
               value={name}
-              onChange={handleNameChange}
-              className="w-full p-2 border rounded-lg"
+              onChange={handleChange(setName)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400"
               placeholder="Enter your name"
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email</label>
+          <div>
+            <label className="block text-gray-700 font-medium">Email</label>
             <input
               type="email"
-              id="email"
               value={email}
-              onChange={handleEmailChange}
-              className="w-full p-2 border rounded-lg"
+              onChange={handleChange(setEmail)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400"
               placeholder="Enter your email"
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="message" className="block text-gray-700 font-bold mb-2">Message</label>
+          <div>
+            <label className="block text-gray-700 font-medium">Message</label>
             <textarea
-              id="message"
               value={message}
-              onChange={handleMessageChange}
-              className="w-full p-2 border rounded-lg"
+              onChange={handleChange(setMessage)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400"
               placeholder="Enter your message"
               rows={5}
-            ></textarea>
+            />
           </div>
-          <button type="submit" className="bg-blue-500 text-white p-2 rounded-lg">Submit</button>
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-all"
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>
