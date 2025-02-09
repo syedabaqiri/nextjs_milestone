@@ -3,7 +3,7 @@
 import { useParams } from 'next/navigation';
 import Navigation from '../../../components/Navigation';
 import CommentSection from '../../../components/CommentSection';
-import styles from '../../../styles/blog.module.css';
+import styles from '../../../styles/Blog.module.css';
 
 const posts: Record<string, { title: string; content: string }> = {  // ✅ Fix TypeScript error
   '1': { title: 'First Blog Post', content: 'This is the content of the first blog post.' },
